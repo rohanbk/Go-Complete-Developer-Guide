@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	cards := newDeck()
@@ -11,4 +13,13 @@ func main() {
 
 	fmt.Println("Printing remaining deck...")
 	remainingDeck.print()
+
+	cards.print()
+
+	err := saveToFile(hand)
+
+	if err != nil {
+		panic(err)
+	}
+
 }

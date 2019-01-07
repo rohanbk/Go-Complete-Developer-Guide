@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+)
 
 // Create a new type of 'deck'
 // which is a slice of strings
@@ -34,4 +37,21 @@ func (d deck) print() {
 // Return two slices: the player's hand and the remaining deck
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+func saveToFile(d deck) error {
+	err := ioutil.WriteFile("/home/rohanbk/go/go_complete_developer_guide/cards/hand.txt", []byte(d.toString()), 0644)
+	return err
+}
+
+func (d deck) toString() string {
+	var deckString string
+	for _, card := range d {
+		if deckString == "" {
+			deckString = card
+		} else {
+			deckString = deckString + " " + card
+		}
+	}
+	return deckString
 }
