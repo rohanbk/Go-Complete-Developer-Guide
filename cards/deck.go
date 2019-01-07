@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"strings"
 )
 
 // Create a new type of 'deck'
@@ -45,13 +46,6 @@ func saveToFile(d deck) error {
 }
 
 func (d deck) toString() string {
-	var deckString string
-	for _, card := range d {
-		if deckString == "" {
-			deckString = card
-		} else {
-			deckString = deckString + " " + card
-		}
-	}
+	deckString := strings.Join(d, " ")
 	return deckString
 }
