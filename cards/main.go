@@ -16,7 +16,7 @@ func main() {
 
 	cards.print()
 
-	err := saveToFile(hand)
+	err := cards.saveToFile()
 
 	if err != nil {
 		panic(err)

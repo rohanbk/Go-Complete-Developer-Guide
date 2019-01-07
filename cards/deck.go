@@ -40,7 +40,7 @@ func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
 
-func saveToFile(d deck) error {
+func (d deck) saveToFile() error {
 	err := ioutil.WriteFile("/home/rohanbk/go/go_complete_developer_guide/cards/hand.txt", []byte(d.toString()), 0644)
 	return err
 }
