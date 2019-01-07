@@ -45,7 +45,12 @@ func (d deck) saveToFile() error {
 	return err
 }
 
+func readFromFile() (string, error) {
+	hand, err := ioutil.ReadFile("/home/rohanbk/go/go_complete_developer_guide/cards/hand.txt")
+	return string(hand), err
+}
+
 func (d deck) toString() string {
-	deckString := strings.Join(d, " ")
+	deckString := strings.Join(d, ",")
 	return deckString
 }

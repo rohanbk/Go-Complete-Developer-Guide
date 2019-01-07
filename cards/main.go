@@ -6,20 +6,21 @@ import (
 
 func main() {
 	cards := newDeck()
-	hand, remainingDeck := deal(cards, 5)
+	hand, _ := deal(cards, 5)
 
-	fmt.Println("Printing hand...")
-	hand.print()
-
-	fmt.Println("Printing remaining deck...")
-	remainingDeck.print()
-
-	cards.print()
-
-	err := cards.saveToFile()
+	err := hand.saveToFile()
 
 	if err != nil {
 		panic(err)
 	}
+
+	readHand, err := readFromFile()
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Reading from saved file...")
+	fmt.Println(readHand)
 
 }
