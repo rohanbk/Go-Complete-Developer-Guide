@@ -64,12 +64,10 @@ func (d deck) toString() string {
 	return deckString
 }
 
-func (d deck) shuffle() deck {
+func (d deck) shuffle() {
 	deckLength := len(d)
 	for i := range d {
 		r := rand.Intn(deckLength)
 		d[i], d[r] = d[r], d[i]
 	}
-
-	return d
 }
