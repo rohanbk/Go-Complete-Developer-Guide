@@ -40,16 +40,16 @@ func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
 
-func (d deck) saveToFile() {
-	err := ioutil.WriteFile("/home/rohanbk/go/go_complete_developer_guide/cards/hand.txt", []byte(d.toString()), 0644)
+func (d deck) saveToFile(filePath string) {
+	err := ioutil.WriteFile(filePath, []byte(d.toString()), 0644)
 
 	if err != nil {
 		panic(err)
 	}
 }
 
-func readFromFile() deck {
-	bs, err := ioutil.ReadFile("/home/rohanbk/go/go_complete_developer_guide/cards/hand.txt")
+func readFromFile(filePath string) deck {
+	bs, err := ioutil.ReadFile(filePath)
 
 	if err != nil {
 		panic(err)

@@ -9,9 +9,9 @@ func main() {
 	hand, _ := deal(cards, 5)
 
 	fmt.Println("Saving hand to file...")
-	hand.saveToFile()
+	hand.saveToFile("hand.txt")
 
-	readHand := readFromFile()
+	readHand := readFromFile("hand.txt")
 
 	fmt.Println("Reading from saved file...")
 	fmt.Println(readHand)
