@@ -8,17 +8,10 @@ func main() {
 	cards := newDeck()
 	hand, _ := deal(cards, 5)
 
-	err := hand.saveToFile()
+	fmt.Println("Saving hand to file...")
+	hand.saveToFile()
 
-	if err != nil {
-		panic(err)
-	}
-
-	readHand, err := readFromFile()
-
-	if err != nil {
-		panic(err)
-	}
+	readHand := readFromFile()
 
 	fmt.Println("Reading from saved file...")
 	fmt.Println(readHand)
