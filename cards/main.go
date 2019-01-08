@@ -16,4 +16,7 @@ func main() {
 	fmt.Println("Reading from saved file...")
 	fmt.Println(readHand)
 
+	fmt.Println("Shuffle hand...")
+	readHand.shuffle().print()
+
 }
