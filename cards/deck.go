@@ -66,14 +66,9 @@ func (d deck) toString() string {
 
 func (d deck) shuffle() deck {
 	deckLength := len(d)
-	for i := 0; i < deckLength; i++ {
+	for i := range d {
 		r := rand.Intn(deckLength)
-		a := d[i]
-		b := d[r]
-
-		d[i] = b
-		d[r] = a
-
+		d[i], d[r] = d[r], d[i]
 	}
 
 	return d
