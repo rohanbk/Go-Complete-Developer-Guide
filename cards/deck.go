@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"strings"
+	"time"
 )
 
 // Create a new type of 'deck'
@@ -16,8 +17,8 @@ type deck []string
 func newDeck() deck {
 	cards := deck{}
 
-	suits := []string{"Hearts", "Spades", "Clubs", "Diamonds"}
-	values := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"}
+	suits := []string{"Hearts", "Spades"}
+	values := []string{"Ace", "Two", "Three"}
 
 	for _, suit := range suits {
 		for _, value := range values {
@@ -28,7 +29,7 @@ func newDeck() deck {
 	return cards
 }
 
-// Create function receiver for type 'deck'
+// Create function receiver for type 'deck' to print all cards in the deck
 func (d deck) print() {
 	for index, card := range d {
 		fmt.Println(index, card)
@@ -64,10 +65,15 @@ func (d deck) toString() string {
 	return deckString
 }
 
+// Create function receiver for type 'deck' to randomize the order of the cards in the deck
 func (d deck) shuffle() {
 	deckLength := len(d)
+
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
 	for i := range d {
-		r := rand.Intn(deckLength)
+		r := r.Intn(deckLength)
 		d[i], d[r] = d[r], d[i]
 	}
 }
