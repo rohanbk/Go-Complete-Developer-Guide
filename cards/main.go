@@ -17,6 +17,7 @@ func main() {
 	fmt.Println(readHand)
 
 	fmt.Println("Shuffle hand...")
-	readHand.shuffle().print()
+	readHand.shuffle()
+	readHand.print()
 
 }
