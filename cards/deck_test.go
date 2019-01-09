@@ -33,7 +33,7 @@ func Test_readFromFile(t *testing.T) {
 	nd := readFromFile(fp)
 
 	//Check the size of each deck
-	if len(nd) == len(d) {
+	if len(nd) != len(d) {
 		t.Errorf("Deck lengths do not match. %v is not equal to %v", len(nd), len(d))
 	}
 
