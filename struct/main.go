@@ -32,7 +32,7 @@ func main() {
 
 }
 
-func (pointerToPerson *person) updateName(firstName string, lastName string) {
+func (pointerToPerson *person) updateName(firstName string, l astName string) {
 	//Turn memory address into a value using '*'
 	pointerToPerson.firstName = firstName
 	pointerToPerson.lastName = lastName
