@@ -7,24 +7,24 @@ type bot interface {
 }
 
 type englishBot struct {
-	BOT_ID
+	botID
 }
 type spanishBot struct {
-	BOT_ID
+	botID
 }
 
-type BOT_ID struct {
+type botID struct {
 	id int
 }
 
 func main() {
 	eb := englishBot{
-		BOT_ID{
+		botID{
 			id: 1,
 		},
 	}
 	sb := spanishBot{
-		BOT_ID{
+		botID{
 			id: 2,
 		},
 	}
